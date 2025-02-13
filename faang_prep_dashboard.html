@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAANG Interview Prep Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 80%; margin: auto; }
+        .progress { width: 100%; background: #ddd; border-radius: 5px; }
+        .progress-bar { height: 25px; background: #4CAF50; border-radius: 5px; width: 0%; text-align: center; color: white; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: left; }
+        .done { background-color: #90EE90; }
+        .pending { background-color: #FFCCCB; }
+        button { padding: 10px; margin-top: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FAANG Interview Prep Dashboard</h1>
+        <div class="progress">
+            <div id="progress-bar" class="progress-bar">0%</div>
+        </div>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+            <tbody id="task-list">
+                <tr><td>Feb 13-15: Arrays, Two Pointers, Linked Lists</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 13-15: Scalability (CDN, Load Balancing)</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 13-15: Regression & Classification</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 16-18: Heaps, Sorting & Searching, Stacks & Queues</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 16-18: Sharding, Replication</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 16-18: Decision Trees, Random Forests</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 19-21: Graphs (BFS, DFS), Recursion</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 19-21: Consistent Hashing, CAP Theorem</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 19-21: Neural Networks (MLP, Backprop)</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 22-24: Trees, Binary Search, DP Basics</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 22-24: Distributed Transactions, Caching</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 22-24: CNN Basics</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 24: Sprint Test #1</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 25-27: Mock DSA Interview #1</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Feb 28-Mar 2: Mock System Design Interview #2</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Mar 2: Sprint Test #2</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Mar 3-5: Mock Coding Interview #3</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Mar 6-8: Mock System Design #4</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Mar 9-10: Final Full-Length Mock</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+                <tr><td>Mar 10: Sprint Test #3</td><td><button onclick="toggleStatus(this)">Pending</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function toggleStatus(button) {
+            if (button.innerText === "Pending") {
+                button.innerText = "Done";
+                button.parentElement.parentElement.classList.add("done");
+                button.parentElement.parentElement.classList.remove("pending");
+            } else {
+                button.innerText = "Pending";
+                button.parentElement.parentElement.classList.add("pending");
+                button.parentElement.parentElement.classList.remove("done");
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            let tasks = document.querySelectorAll("tbody tr").length;
+            let doneTasks = document.querySelectorAll(".done").length;
+            let progress = (doneTasks / tasks) * 100;
+            document.getElementById("progress-bar").style.width = progress + "%";
+            document.getElementById("progress-bar").innerText = Math.round(progress) + "%";
+        }
+    </script>
+</body>
+</html>
